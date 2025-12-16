@@ -1,0 +1,25 @@
+experiment:
+  name: "base_cnn"
+
+paths:
+  data_root: "data"
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  metadata_csv: "data/metadata.csv"
+  logs: "logs"
+
+audio:
+  sample_rate: 16000
+  duration: 4.0  # in seconds
+  mono: true
+
+spectrogram:
+  sample_rate: 16000
+  n_fft: 2048
+  win_length: 1024
+  hop_length: 256
+  n_mels: 64
+  f_min: None
+  window: "hamming"
+  
+
