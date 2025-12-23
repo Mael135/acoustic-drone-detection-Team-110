@@ -1,2 +1,2 @@
 # acoustic-drone-detection-Team-110
-Real-time drone detection using acoustic signals, STM32 DSP processing, and machine-learning classification.
+Real-time acoustic drone detection system using STM32-based Mel Spectrogram preprocessing and a CNN classifier for edge-deployment.
