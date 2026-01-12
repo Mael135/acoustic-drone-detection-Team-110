@@ -4,7 +4,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler
 
-
+# change
 def train_drone_svm(spectrograms, labels):
     """
     spectrograms: A list or 3D numpy array of shape (N, height, width)
