@@ -12,7 +12,11 @@ from config import load_and_merge_configs, DEFAULT_CONFIG_PATH, MODEL_CONFIG_PAT
 
 config = load_and_merge_configs([DEFAULT_CONFIG_PATH, MODEL_CONFIG_PATH])
 
-df = pd.read_csv("drones.csv")
+metadata_path = config["paths"]["metadata_csv"]
+
+
+
+df = pd.read_csv(metadata_path)
 df.set_index('fname',inplace=True)
 for f in df.index:
     rate, signal = wavfile.read('wavfiles/' + f)
