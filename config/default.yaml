@@ -8,7 +8,7 @@ paths:
   metadata_csv: "data/metadata.csv"
   logs: "logs"
 
-audio:
+data:
   sample_rate: 16000
   duration: 4.0  # in seconds
   mono: true
