@@ -9,17 +9,17 @@ paths:
   logs: "logs"
 
 data:
-  sample_rate: 16000
-  duration: 4.0  # in seconds
+  sample_rate: 22050
+  duration: 2.0  # in seconds
   mono: true
 
 spectrogram:
-  sample_rate: 16000
+  sample_rate: 22050
   n_fft: 2048
-  win_length: 1024
-  hop_length: 256
-  n_mels: 64
-  f_min: None
-  window: "hamming"
+  win_length: 2048
+  hop_length: 512
+  n_mels: 128
+  f_min: 0.0
+  window: "hann"
   
 

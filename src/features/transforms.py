@@ -25,12 +25,12 @@ class SpectrogramTransform:
         self.hop_length: int =          spec_config["hop_length"]
         self.f_min: float =             spec_config.get("f_min", 0.0)
         self.f_max: Optional[float] =   spec_config.get("f_max", None)
-        self.pad: Optional[int] =       spec_config.get("pad", None)
+        self.pad: Optional[int] =       spec_config.get("pad", 0)
         self.n_mels: int =              spec_config["n_mels"]
         self.window_fn =                windows[spec_config.get("window", "hann")]
         self.power : float =            spec_config.get("power", 2.0)
         self.eps: float =               spec_config.get("eps", 1e-10)
-
+        
         self.amplitude_to_db = torchaudio.transforms.AmplitudeToDB()
         self.mel_spectrogram = torchaudio.transforms.MelSpectrogram(
             sample_rate =   self.sample_rate,
