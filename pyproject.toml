@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aerosonar"
+version = "0.1.0"
+description = "Drone detection using audio analysis"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pyyaml",
+    "torch",
+    "torchaudio",
+    "pandas",
+    "pathlib",
+    "tqdm"
+
+
+]
+
+# This automatically finds your package inside "src"
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# This tells Python to include the YAML files inside the wheel
+[tool.setuptools.package-data]
+"aerosonar" = ["config/*.yaml"]

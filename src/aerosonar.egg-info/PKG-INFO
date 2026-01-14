@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: aerosonar
+Version: 0.1.0
+Summary: Drone detection using audio analysis
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pyyaml
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: pandas
+Requires-Dist: pathlib
+Requires-Dist: tqdm
+
+# acoustic-drone-detection-Team-110
+Real-time acoustic drone detection system using STM32-based Mel Spectrogram preprocessing and a CNN classifier for edge-deployment.

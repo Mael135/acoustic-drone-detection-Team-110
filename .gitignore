@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+��
+=======
+/data/
+/data/**
+.gitignore
+aerial_detector.egg-info/PKG-INFO
+aerial_detector.egg-info/dependency_links.txt
+aerial_detector.egg-info/SOURCES.txt
+aerial_detector.egg-info/top_level.txt
+src/__pycache__/config.cpython-310.pyc
+src/features/__pycache__/transforms.cpython-310.pyc
+>>>>>>> 6e0b9dc57b704927f290f54989829632569d8afd

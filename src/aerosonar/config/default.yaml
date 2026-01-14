@@ -1,0 +1,25 @@
+experiment:
+  name: "base_cnn"
+
+paths:
+  data_root: "data"
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  metadata_csv: "data/metadata.csv"
+  logs: "logs"
+
+data:
+  sample_rate: 22050
+  duration: 2.0  # in seconds
+  mono: true
+
+spectrogram:
+  sample_rate: 22050
+  n_fft: 2048
+  win_length: 2048
+  hop_length: 512
+  n_mels: 128
+  f_min: 0.0
+  window: "hann"
+  
+
