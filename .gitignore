@@ -1,5 +1,8 @@
-/data/
-/data/**
+/data/playground/
+/data/playground/**
+/data/raw/
+/data/raw/**
+
 pyproject.toml
 .gitignore
 aerial_detector.egg-info/PKG-INFO
