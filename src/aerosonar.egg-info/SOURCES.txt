@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/aerosonar/__init__.py
+src/aerosonar/config.py
+src/aerosonar.egg-info/PKG-INFO
+src/aerosonar.egg-info/SOURCES.txt
+src/aerosonar.egg-info/dependency_links.txt
+src/aerosonar.egg-info/requires.txt
+src/aerosonar.egg-info/top_level.txt
+src/aerosonar/config/default.yaml
+src/aerosonar/config/model.yaml
+src/aerosonar/data/preprocessData.py
+src/aerosonar/features/transforms.py
+src/aerosonar/models/spectrogramCNN.py
+src/aerosonar/models/spectrogramSVM.py
+src/aerosonar/training/trainCNN.py
+src/aerosonar/training/trainSVM.py

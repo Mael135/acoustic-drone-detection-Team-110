@@ -1,5 +1,5 @@
 import numpy as np
-from src.config import load_and_merge_configs
+from aerosonar.config import load_and_merge_configs
 from typing import Optional
 
 import torch

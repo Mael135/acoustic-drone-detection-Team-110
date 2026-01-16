@@ -5,8 +5,8 @@ import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
 
-from src.features.transforms import SpectrogramTransform
-from src.config import load_default_config
+from aerosonar.features.transforms import SpectrogramTransform
+from aerosonar.config import load_default_config
 
 def parse_filename_metadata(filename: str):
     date, location, label, noise, gain, sr, duration, num = Path(filename).stem.split('__')
@@ -70,6 +70,7 @@ def process_data():
             end = start + chunk_samples 
             chunk_waveform = waveform[:, start:end]
             spectrogram = spectrogram_transform(chunk_waveform)
+            print(spectrogram.shape)
             if (meta['is_drone']):
                 prefix = 'drone'
                 num = drone_spec_number
@@ -80,7 +81,7 @@ def process_data():
                 no_drone_spec_number += 1
             out_filename = f"{prefix}_{num:06d}.pt"
             out_path = PROCESSED_DIR / out_filename
-            torch.save(spectrogram, out_path)
+            # torch.save(spectrogram, out_path)
             chunk_meta = {}
             chunk_meta["filename"] = out_filename
             chunk_meta["start_time"] = i * CHUNK_DURATION
@@ -98,9 +99,9 @@ def process_data():
     expanded_df = expanded_df[cols]
 
     csv_path = PROCESSED_DIR / "metadata.csv"
-    df.to_csv(csv_path, index=False)
+    # df.to_csv(csv_path, index=False)
     expanded_csv_path = PROCESSED_DIR / "expanded_metadata.csv"
-    expanded_df.to_csv(expanded_csv_path, index=False)
+    # expanded_df.to_csv(expanded_csv_path, index=False)
 
 
     print(f"Processing complete. Metadata saved to {csv_path}")
