@@ -8,33 +8,33 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import src
-from config import load_and_merge_configs, DEFAULT_CONFIG_PATH, MODEL_CONFIG_PATH
+from aerosonar.config import load_default_config
 
-config = load_and_merge_configs([DEFAULT_CONFIG_PATH, MODEL_CONFIG_PATH])
+config = load_default_config()
 
 metadata_path = config["paths"]["metadata_csv"]
+print(metadata_path)
 
 
+# df = pd.read_csv(metadata_path)
+# df.set_index('fname',inplace=True)
+# for f in df.index:
+#     rate, signal = wavfile.read('wavfiles/' + f)
+#     df.at[f, 'length'] = signal.shape[0]/rate
+# classes = list(np.unique(df.label))
+# class_dist = df.groupby(['label'])['length'].mean()
+# fig, ax = plt.subplots()
 
-df = pd.read_csv(metadata_path)
-df.set_index('fname',inplace=True)
-for f in df.index:
-    rate, signal = wavfile.read('wavfiles/' + f)
-    df.at[f, 'length'] = signal.shape[0]/rate
-classes = list(np.unique(df.label))
-class_dist = df.groupby(['label'])['length'].mean()
-fig, ax = plt.subplots()
 
-
-class SpectrogramCNN(nn.modules):
+class SpectrogramCNN(nn.Module):
     def __init__(self, freq_bins , time_frames, num_classes):
         super(SpectrogramCNN, self).__init__()
-        self.conv1 = nn.Conv2d(in_channels=1, out_chanels=16, kernel_size=3, padding=1)
-        self.conv2 = nn.Conv2d(in_channels=16, out_chanels=32, kernel_size=3, padding=1)
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, padding=1)
         self.pool1 = nn.MaxPool2d(kernel_size=2,stride=2)
         self.drop1 = nn.Dropout(p=0.25)
-        self.conv3 = nn.Conv2d(in_channels=32, out_chanels=64, kernel_size=3, padding=1)
-        self.conv4 = nn.Conv2d(in_channels=64, out_chanels=128, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
+        self.conv4 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1)
         self.pool2 = nn.MaxPool2d(kernel_size=2,stride=2)
         self.drop2 = nn.Dropout(p=0.25)
         self.global_avg_pool = nn.AdaptiveAvgPool2d((1, 1))

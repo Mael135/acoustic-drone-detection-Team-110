@@ -1,8 +1,8 @@
 import yaml
 from pathlib import Path
 
-DEFAULT_CONFIG_PATH = "config/default.yaml"
-MODEL_CONFIG_PATH = "config/model.yaml"
+DEFAULT_CONFIG_PATH = "src/aerosonar/config/default.yaml"
+MODEL_CONFIG_PATH = "src/aerosonar/config/model.yaml"
 
 def load_default_config():
     return load_config(DEFAULT_CONFIG_PATH)
