@@ -1,0 +1,8 @@
+numpy
+scipy
+pyyaml
+torch
+torchaudio
+pandas
+pathlib
+tqdm
