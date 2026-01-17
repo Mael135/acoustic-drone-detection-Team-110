@@ -10,7 +10,7 @@ paths:
 
 data:
   sample_rate: 22050
-  duration: 2.0  # in seconds
+  duration: 1.0  # in seconds
   mono: true
 
 spectrogram:

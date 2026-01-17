@@ -101,7 +101,7 @@ def process_data():
     no_drone_spec_number = 0
     metadata_rows = []
     expanded_metadata_rows = []
-    for audio_path in tqdm(audio_files):
+    for file_id, audio_path in enumerate(tqdm(audio_files)):
         meta = parse_filename_metadata(audio_path.name)
         if not meta:
             continue
@@ -129,7 +129,7 @@ def process_data():
             torch.save(spectrogram, out_path)
             chunk_meta = {}
             chunk_meta["filename"] = out_filename
-            chunk_meta["start_time"] = i * CHUNK_DURATION
+            chunk_meta["file_id"] = file_id
             chunk_meta["target"] = 1 if meta["is_drone"] else 0
             metadata_rows.append(chunk_meta)
             expanded_chunk_meta = meta.copy()
